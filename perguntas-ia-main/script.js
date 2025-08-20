@@ -1,8 +1,7 @@
 const caixaPrincipal = document.querySelector(".caixa-principal");
 const caixaPerguntas = document.querySelector(".caixa-pergunta");
 const caixaAlternativas = document.querySelector(".caixa-alternativas");
-const textoResultado = document.querySelector(".texto-resultado");
-
+const caixaResultado = document.querySelector(".texto-resultado");
 const perguntas = [
   {
     enunciado:
@@ -10,11 +9,11 @@ const perguntas = [
     alternativas: [
         {
             texto:"Isso é assustador!",
-            afirmacao: "talvez, um pouco"
+            afirmacao: "afirmacao"
         },
         {
             texto:"Isso é maravilhoso!",
-            afirmacao: "ele ajuda muito"
+            afirmacao: "afirmacao"
         }  
     ],
   },
@@ -24,11 +23,11 @@ const perguntas = [
     alternativas: [
             {
                 texto:  "Utiliza uma ferramenta de busca na internet que utiliza IA para que ela ajude a encontrar informações relevantes para o trabalho e explique numa linguagem que facilite o entendimento.",
-                afirmacao:"para estudos "
+                afirmacao:"afirmacao"
             },
             {
                 texto:  "Escreve o trabalho com base nas conversas que teve com colegas, algumas pesquisas na internet e conhecimentos próprios sobre o tema.",
-                afirmacao: "onde ficava os paises"
+                afirmacao: "afirmacao"
             }  
     ],
   },
@@ -38,11 +37,11 @@ const perguntas = [
     alternativas: [
         {
             texto:  "Defende a ideia de que a IA pode criar novas oportunidades de emprego e melhorar habilidades humanas.",
-            afirmacao: "sim, mais pode tirar tambem"
+            afirmacao: "afirmacao"
         },
         {
             texto:  "Me preocupo com as pessoas que perderão seus empregos para máquinas e defendo a importância de proteger os trabalhadores.",
-            afirmacao: "isso e ruim porem sao para melhorar a qualidade e vida"
+            afirmacao: "afirmacao"
         }    
     ],
   },
@@ -52,11 +51,11 @@ const perguntas = [
     alternativas: [
         {
             texto: "Criar uma imagem utilizando uma plataforma de design como o Paint.",
-            afirmacao: "isso e bom "
+            afirmacao: "afirmacao"
         },
         {
             texto: "Criar uma imagem utilizando um gerador de imagem de IA.",
-            afirmacao: "para ajudar"
+            afirmacao: "afirmacao"
         }    
     ],
   },
@@ -66,50 +65,20 @@ const perguntas = [
     alternativas: [
         {
             texto:  "Escrever comandos para o chat é uma forma de contribuir com o trabalho, por isso não é um problema utilizar o texto inteiro.",
-            afirmacao: "ajuda muito"
+            afirmacao: "afirmacao"
         },
         {
             texto: "O chat pode ser uma tecnologia muito avançada, mas é preciso manter a atenção pois toda máquina erra, por isso revisar o trabalho e contribuir com as perspectivas pessoais é essencial.",
-            afirmacao: "mais cada vez melhor"
+            afirmacao: "afirmacao"
         }    
     ]
   },
 ];
-
 let atual = 0;
 let perguntaAtual;
-let historiaFinal = "";
 
 function mostraPergunta(){
-  if(atual >= perguntas.length){
-    mostraResultado();
-    return;
-  }
     perguntaAtual = perguntas[atual];
-    caixaPerguntas.textContent = perguntaAtual.enunciado;
-    mostraAlternativas();
-}
-
-function mostraAlternativas(){
-  for(const alternativa of perguntaAtual.alternativas){
-    const botaoAlternativa = document.createElement("button");
-    botaoAlternativa.textContent = alternativa.texto;
-    botaoAlternativa.addEventListener("click",() => respostaSelecionada
-      (alternativa));
-    caixaAlternativas.appendChild(botaoAlternativa);
-  }
-}
-
-function respostaSelecionada(opcaoSelecionada){
-  const afirmacoes = opcaoSelecionada.afirmacao;
-  historiaFinal += afirmacoes + " ";
-  atual ++;
-mostraPergunta();
-}
-
-function mostraResultado(){
-  caixaPerguntas.textContent = "Em 2049...";
-  textoResultado.textContent = historiaFinal;
-  caixaAlternativas.textContent = "";
+    caixaPerguntas.textcontent = perguntaAtual.enunciado;
 }
 mostraPergunta()
